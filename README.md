@@ -1,6 +1,6 @@
 # Problem Set 9
 
-It's time to put your skills to the test. We're back to a disjointed set of exercises, which is probably a relief after the last problem set. This one should be a piece of cake. We'll be working specifically with arrays.
+It's time to put your skills to the test. This problem set should look very familiar. It's the same thing as last time, except we're using lists instead of arrays.
 
 ## Getting Started
 
