@@ -57,7 +57,7 @@ public class Exercises {
 
 		ArrayList<Double> result = new ArrayList<Double>();
 		result.add(numbers.get(0));
-		result.add(numbers.get(numbers.size() - 1 / 2));
+		result.add(numbers.get((numbers.size() - 1) / 2));
 		result.add(numbers.get(numbers.size() - 1));
 
 		return Collections.max(result);
@@ -65,9 +65,16 @@ public class Exercises {
 	}
 
 	public ArrayList<String> middle(ArrayList<String> values) {
-		// write your code here
+		if (values == null || values.size() % 2 == 0 || values.size() < 3) {
+			return null;
+		}
 
-		return null; // default return value to ensure compilation
+		ArrayList<String> result = new ArrayList<String>();
+		result.add(values.get((values.size() - 1) / 2 - 1));
+		result.add(values.get((values.size() - 1) / 2));
+		result.add(values.get((values.size() - 1) / 2 + 1));
+		
+		return result;
 	}
 
 	public boolean increasing(ArrayList<Integer> numbers) {
