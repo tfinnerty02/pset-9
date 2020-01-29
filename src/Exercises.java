@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Exercises {
 
@@ -15,7 +16,7 @@ public class Exercises {
 			return true;
 		}
 
-		return false; // default return value to ensure compilation
+		return false;
 	}
 
 	public ArrayList<String> endsMeet(ArrayList<String> values, int n) {
@@ -25,20 +26,25 @@ public class Exercises {
 
 		// write your code here
 		ArrayList<String> result = new ArrayList<String>();
-		for (int i = 0; i < n; i++) {
-			result.add(values.get(i));
-		}
-		for (int j = values.size() - n; j < values.size(); j++) {
-			result.add(values.get(j));
-		}
+		result.add("H");
+//		for (int i = 0; i < n; i++) {
+//			result.add(values.get(i));
+//		}
+//		for (int j = values.size() - n; j < values.size(); j++) {
+//			result.add(values.get(j));
+//		}
 
 		return result;
 	}
 
 	public int difference(ArrayList<Integer> numbers) {
-		// write your code here
+		if (numbers == null || numbers.size() < 1) {
+			return -1;
+		}
 
-		return -1; // default return value to ensure compilation
+		// write your code here
+		return Collections.max(numbers) - Collections.min(numbers);
+
 	}
 
 	public double biggest(ArrayList<Double> numbers) {
