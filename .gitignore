@@ -1,0 +1,14 @@
+.classpath
+.project
+.settings/
+
+bin/
+lib/
+
+src/Exercise.java
+src/Grader.java
+src/Parameter.java
+src/Staff.java
+src/Value.java
+
+grader.sh
