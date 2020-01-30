@@ -123,7 +123,16 @@ public class Exercises {
 	}
 
 	public boolean consecutive(ArrayList<Integer> numbers) {
-
+		if(numbers == null || numbers.size() < 3) {
+			return false;
+		}
+		
+		for(int i = 0; i < numbers.size() - 2; i++) {
+			if((numbers.get(i) % 2 == 0 && numbers.get(i + 1) % 2 == 0 && numbers.get(i+2) % 2 == 0) || (numbers.get(i) % 2 == 1 && numbers.get(i + 1) % 2 == 1 && numbers.get(i+2) % 2 == 1)) {
+				return true;
+			}
+		}
+		
 		return false; // default return value to ensure compilation
 	}
 
