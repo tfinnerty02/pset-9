@@ -20,21 +20,21 @@ public class Exercises {
 	}
 
 	public ArrayList<String> endsMeet(ArrayList<String> values, int n) {
-        ArrayList<String> result = new ArrayList<String>();
+		ArrayList<String> result = new ArrayList<String>();
 		if (values == null || values.size() < n || n < 0 || values.isEmpty()) {
-            return result;
-        }
+			return result;
+		}
 
-        int initialN = n;
-        for (int i = 0; i < n; i++) {
-            result.add(values.get(i));
-        }
-        for (int i = n; i < n * 2; i++) {
-            result.add(values.get(values.size() - initialN));
-            initialN--;
-        }
-        
-        return result;
+		int initialN = n;
+		for (int i = 0; i < n; i++) {
+			result.add(values.get(i));
+		}
+		for (int i = n; i < n * 2; i++) {
+			result.add(values.get(values.size() - initialN));
+			initialN--;
+		}
+
+		return result;
 	}
 
 	public int difference(ArrayList<Integer> numbers) {
@@ -123,17 +123,18 @@ public class Exercises {
 	}
 
 	public boolean consecutive(ArrayList<Integer> numbers) {
-		if(numbers == null || numbers.size() < 3) {
+		if (numbers == null || numbers.size() < 3) {
 			return false;
 		}
-		
-		for(int i = 0; i < numbers.size() - 2; i++) {
-			if((numbers.get(i) % 2 == 0 && numbers.get(i + 1) % 2 == 0 && numbers.get(i+2) % 2 == 0) || (numbers.get(i) % 2 == 1 && numbers.get(i + 1) % 2 == 1 && numbers.get(i+2) % 2 == 1)) {
+
+		for (int i = 0; i < numbers.size() - 2; i++) {
+			if ((numbers.get(i) % 2 == 0 && numbers.get(i + 1) % 2 == 0 && numbers.get(i + 2) % 2 == 0)
+					|| (numbers.get(i) % 2 == 1 && numbers.get(i + 1) % 2 == 1 && numbers.get(i + 2) % 2 == 1)) {
 				return true;
 			}
 		}
-		
-		return false; // default return value to ensure compilation
+
+		return false;
 	}
 
 	public boolean balance(ArrayList<Integer> numbers) {
@@ -161,8 +162,26 @@ public class Exercises {
 	}
 
 	public int clumps(ArrayList<String> values) {
-		// write your code here
+		if (values == null) {
+			return -1;
+		}
+		for (int i = 0; i < values.size(); i++) {
+			if (values.get(i) == null) {
+				return -1;
+			}
+		}
 
-		return -1; // default return value to ensure compilation
+		boolean clumps = false;
+		int count = 0;
+		for (int i = 0; i < values.size() - 1; i++) {
+			if (values.get(i).equals(values.get(i+1)) && !clumps) {
+				clumps = true;
+				count++;
+			} else if (!values.get(i).equals(values.get(i+1))) {
+				clumps = false;
+			}
+		}
+
+		return count;
 	}
 }
