@@ -68,6 +68,11 @@ public class Exercises {
 		if (values == null || values.size() % 2 == 0 || values.size() < 3) {
 			return null;
 		}
+		for (int i = 0; i < values.size(); i++) {
+			if (values.get(i) == null) {
+				return null;
+			}
+		}
 
 		ArrayList<String> result = new ArrayList<String>();
 		result.add(values.get((values.size() - 1) / 2 - 1));
@@ -78,7 +83,15 @@ public class Exercises {
 	}
 
 	public boolean increasing(ArrayList<Integer> numbers) {
-		// write your code here
+		if (numbers == null || numbers.size() < 3) {
+			return false;
+		}
+		
+		for (int i = 0; i <= numbers.size() - 3; i++) {
+			if (numbers.get(i) < numbers.get(i+1) && numbers.get(i+1) < numbers.get(i+2)) {
+				return true;
+			}
+		}
 
 		return false; // default return value to ensure compilation
 	}
