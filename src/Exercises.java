@@ -103,17 +103,17 @@ public class Exercises {
 
 		boolean sameEvens = true;
 		boolean sameOdds = true;
-		for (int i = 0; i < numbers.size(); i+=2) {
-			if(numbers.get(i) != x) {
+		for (int i = 0; i < numbers.size(); i += 2) {
+			if (numbers.get(i) != x) {
 				sameEvens = false;
 			}
 		}
-		for (int i = 1; i < numbers.size(); i+=2) {
-			if(numbers.get(i) != x) {
+		for (int i = 1; i < numbers.size(); i += 2) {
+			if (numbers.get(i) != x) {
 				sameOdds = false;
 			}
 		}
-		
+
 		if (sameEvens || sameOdds) {
 			return true;
 		} else {
@@ -122,15 +122,32 @@ public class Exercises {
 	}
 
 	public boolean consecutive(ArrayList<Integer> numbers) {
-		// write your code here
 
 		return false; // default return value to ensure compilation
 	}
 
 	public boolean balance(ArrayList<Integer> numbers) {
-		// write your code here
+		if (numbers == null || numbers.size() < 2) {
+			return false;
+		}
 
-		return false; // default return value to ensure compilation
+		for (int i = 0; i < numbers.size() - 1; i++) {
+			int firstHalfSum = 0;
+			int secondHalfSum = 0;
+
+			for (int j = i; j >= 0; j--) {
+				firstHalfSum += numbers.get(j);
+			}
+
+			for (int k = i + 1; k < numbers.size(); k++) {
+				secondHalfSum += numbers.get(k);
+			}
+
+			if (firstHalfSum == secondHalfSum) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public int clumps(ArrayList<String> values) {
