@@ -97,29 +97,20 @@ public class Exercises {
 	}
 
 	public boolean everywhere(ArrayList<Integer> numbers, int x) {
-		if (numbers == null || numbers.size() < 1) {
+		if (numbers == null || numbers.size() < 1 || (numbers.get(0) != x && numbers.get(1) != x)) {
 			return false;
 		}
 
-		ArrayList<Integer> evenIndexes = new ArrayList<Integer>();
-		ArrayList<Integer> oddIndexes = new ArrayList<Integer>();
-
 		boolean sameEvens = true;
 		boolean sameOdds = true;
-		for (int i = 0; i < numbers.size(); i += 2) {
-			evenIndexes.add(numbers.get(i));
-		}
-		for (int i = 1; i < numbers.size(); i += 2) {
-			oddIndexes.add(numbers.get(i));
-		}
-		for (int j = 0; j < evenIndexes.size() - 2; j++) {
-			if(evenIndexes.get(j) != evenIndexes.get(j+1)) {
+		for (int i = 0; i < numbers.size(); i+=2) {
+			if(numbers.get(i) != x) {
 				sameEvens = false;
 			}
 		}
-		for (int k = 0; k < oddIndexes.size() - 2; k++) {
-			if(oddIndexes.get(k) != oddIndexes.get(k+1)) {
-				sameEvens = false;
+		for (int i = 1; i < numbers.size(); i+=2) {
+			if(numbers.get(i) != x) {
+				sameOdds = false;
 			}
 		}
 		
