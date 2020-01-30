@@ -20,20 +20,21 @@ public class Exercises {
 	}
 
 	public ArrayList<String> endsMeet(ArrayList<String> values, int n) {
-		if (values == null || values.size() < n || n < 1) {
-			return null;
-		}
+        ArrayList<String> result = new ArrayList<String>();
+		if (values == null || values.size() < n || n < 0 || values.isEmpty()) {
+            return result;
+        }
 
-		ArrayList<String> result = new ArrayList<String>();
-		result.add("H");
-		for (int i = 0; i < n; i++) {
-			result.add(values.get(i));
-		}
-		for (int j = values.size() - n; j < values.size(); j++) {
-			result.add(values.get(j));
-		}
-
-		return result;
+        int initialN = n;
+        for (int i = 0; i < n; i++) {
+            result.add(values.get(i));
+        }
+        for (int i = n; i < n * 2; i++) {
+            result.add(values.get(values.size() - initialN));
+            initialN--;
+        }
+        
+        return result;
 	}
 
 	public int difference(ArrayList<Integer> numbers) {
