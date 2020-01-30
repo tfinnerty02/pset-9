@@ -78,7 +78,7 @@ public class Exercises {
 		result.add(values.get((values.size() - 1) / 2 - 1));
 		result.add(values.get((values.size() - 1) / 2));
 		result.add(values.get((values.size() - 1) / 2 + 1));
-		
+
 		return result;
 	}
 
@@ -86,20 +86,48 @@ public class Exercises {
 		if (numbers == null || numbers.size() < 3) {
 			return false;
 		}
-		
+
 		for (int i = 0; i <= numbers.size() - 3; i++) {
-			if (numbers.get(i) < numbers.get(i+1) && numbers.get(i+1) < numbers.get(i+2)) {
+			if (numbers.get(i) < numbers.get(i + 1) && numbers.get(i + 1) < numbers.get(i + 2)) {
 				return true;
 			}
 		}
 
-		return false; // default return value to ensure compilation
+		return false;
 	}
 
 	public boolean everywhere(ArrayList<Integer> numbers, int x) {
-		// write your code here
+		if (numbers == null || numbers.size() < 1) {
+			return false;
+		}
 
-		return false; // default return value to ensure compilation
+		ArrayList<Integer> evenIndexes = new ArrayList<Integer>();
+		ArrayList<Integer> oddIndexes = new ArrayList<Integer>();
+
+		boolean sameEvens = true;
+		boolean sameOdds = true;
+		for (int i = 0; i < numbers.size(); i += 2) {
+			evenIndexes.add(numbers.get(i));
+		}
+		for (int i = 1; i < numbers.size(); i += 2) {
+			oddIndexes.add(numbers.get(i));
+		}
+		for (int j = 0; j < evenIndexes.size() - 2; j++) {
+			if(evenIndexes.get(j) != evenIndexes.get(j+1)) {
+				sameEvens = false;
+			}
+		}
+		for (int k = 0; k < oddIndexes.size() - 2; k++) {
+			if(oddIndexes.get(k) != oddIndexes.get(k+1)) {
+				sameEvens = false;
+			}
+		}
+		
+		if (sameEvens || sameOdds) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public boolean consecutive(ArrayList<Integer> numbers) {
