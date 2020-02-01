@@ -66,19 +66,22 @@ public class Exercises {
 	}
 
 	public ArrayList<String> middle(ArrayList<String> values) {
-		if (values == null || values.size() % 2 == 0 || values.size() < 3) {
-			return null;
+		ArrayList<String> emptyList = new ArrayList<String>();
+		if (values == null || values.size() < 3 || values.size() % 2 == 0) {
+			return emptyList;
 		}
 		for (int i = 0; i < values.size(); i++) {
 			if (values.get(i) == null) {
-				return null;
+				return emptyList;
 			}
 		}
 
+		int middleIndex = (values.size() - 1) / 2;
+
 		ArrayList<String> result = new ArrayList<String>();
-		result.add(values.get((values.size() - 1) / 2 - 1));
-		result.add(values.get((values.size() - 1) / 2));
-		result.add(values.get((values.size() - 1) / 2 + 1));
+		result.add(values.get(middleIndex - 1));
+		result.add(values.get(middleIndex));
+		result.add(values.get(middleIndex + 1));
 
 		return result;
 	}
@@ -174,10 +177,10 @@ public class Exercises {
 		boolean clumps = false;
 		int count = 0;
 		for (int i = 0; i < values.size() - 1; i++) {
-			if (values.get(i).equals(values.get(i+1)) && !clumps) {
+			if (values.get(i).equals(values.get(i + 1)) && !clumps) {
 				clumps = true;
 				count++;
-			} else if (!values.get(i).equals(values.get(i+1))) {
+			} else if (!values.get(i).equals(values.get(i + 1))) {
 				clumps = false;
 			}
 		}
