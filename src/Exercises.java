@@ -107,6 +107,7 @@ public class Exercises {
 
 		boolean sameEvens = true;
 		boolean sameOdds = true;
+		boolean sameMiddle = false;
 		for (int i = 0; i < numbers.size(); i += 2) {
 			if (numbers.get(i) != x) {
 				sameEvens = false;
@@ -117,8 +118,17 @@ public class Exercises {
 				sameOdds = false;
 			}
 		}
+		if (numbers.size() % 3 == 0 && numbers.get(1) == x) {
+			sameMiddle = true;
+			int templateMiddle = numbers.get(1);
+			for(int i = 1; i < numbers.size(); i+=3) {
+				if (numbers.get(i) != templateMiddle) {
+					sameMiddle = false;
+				}
+			}
+		}
 
-		if (sameEvens || sameOdds) {
+		if (sameEvens || sameOdds || sameMiddle) {
 			return true;
 		} else {
 			return false;
