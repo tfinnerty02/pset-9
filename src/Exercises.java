@@ -66,14 +66,9 @@ public class Exercises {
 	}
 
 	public ArrayList<String> middle(ArrayList<String> values) {
-		ArrayList<String> emptyList = new ArrayList<String>();
 		if (values == null || values.size() < 3 || values.size() % 2 == 0) {
+			ArrayList<String> emptyList = new ArrayList<String>();
 			return emptyList;
-		}
-		for (int i = 0; i < values.size(); i++) {
-			if (values.get(i) == null) {
-				return emptyList;
-			}
 		}
 
 		int middleIndex = (values.size() - 1) / 2;
@@ -82,7 +77,7 @@ public class Exercises {
 		result.add(values.get(middleIndex - 1));
 		result.add(values.get(middleIndex));
 		result.add(values.get(middleIndex + 1));
-
+		
 		return result;
 	}
 
@@ -121,7 +116,7 @@ public class Exercises {
 		if (numbers.size() % 3 == 0 && numbers.get(1) == x) {
 			sameMiddle = true;
 			int templateMiddle = numbers.get(1);
-			for(int i = 1; i < numbers.size(); i+=3) {
+			for (int i = 1; i < numbers.size(); i += 3) {
 				if (numbers.get(i) != templateMiddle) {
 					sameMiddle = false;
 				}
