@@ -66,14 +66,14 @@ public class Exercises {
 	}
 
 	public ArrayList<String> middle(ArrayList<String> values) {
-		if (values == null || values.size() < 3 || values.size() % 2 == 0) {
+		if (values == null || values.size() < 3 || values.size() % 2 == 0 || values.contains(null)) {
 			ArrayList<String> emptyList = new ArrayList<String>();
 			return emptyList;
 		}
 
-		int middleIndex = (values.size() - 1) / 2;
-
 		ArrayList<String> result = new ArrayList<String>();
+		
+		int middleIndex = (values.size() - 1) / 2;
 		result.add(values.get(middleIndex - 1));
 		result.add(values.get(middleIndex));
 		result.add(values.get(middleIndex + 1));
